@@ -1,4 +1,4 @@
-VERSION=2.4.43
+VERSION=2.4.44
 
 ENTROPY=`cat /proc/sys/kernel/random/entropy_avail`
 if [ $ENTROPY -lt 3000 ]
@@ -7,8 +7,6 @@ then
   exit 1
 fi
 
-https://dist.apache.org/repos/dist/dev/httpd/
-https://dist.apache.org/repos/dist/dev/httpd/httpd-2.4.43.tar.gz
 wget https://dist.apache.org/repos/dist/dev/httpd/httpd-${VERSION}.tar.gz
 if [ $? -ne 0 ]; then
     wget http://mirror.easyname.ch/apache/httpd/httpd-${VERSION}.tar.gz
