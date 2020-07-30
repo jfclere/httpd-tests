@@ -7,13 +7,18 @@ then
   exit 1
 fi
 
-wget https://dist.apache.org/repos/dist/dev/httpd/httpd-${VERSION}.tar.gz
-if [ $? -ne 0 ]; then
-    wget http://mirror.easyname.ch/apache/httpd/httpd-${VERSION}.tar.gz
-    if [ $? -ne 0 ]; then
-      echo "Can't find httpd: ${VERSION}"
-      exit 1
-    fi 
+if [ ! -f httpd-${VERSION}.tar.gz ]; then
+  wget https://dist.apache.org/repos/dist/dev/httpd/httpd-${VERSION}.tar.gz
+  if [ $? -ne 0 ]; then
+      wget http://mirror.easyname.ch/apache/httpd/httpd-${VERSION}.tar.gz
+      if [ $? -ne 0 ]; then
+        echo "Can't find httpd: ${VERSION}"
+        exit 1
+      fi 
+  fi
+else
+  echo "WARN: using existing httpd-${VERSION}.tar.gz"
+  sleep 1
 fi
 
 tar xvf httpd-${VERSION}.tar.gz
