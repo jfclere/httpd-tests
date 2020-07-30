@@ -1,4 +1,4 @@
-VERSION=2.4.44
+VERSION=2.4.45
 
 ENTROPY=`cat /proc/sys/kernel/random/entropy_avail`
 if [ $ENTROPY -lt 3000 ]
