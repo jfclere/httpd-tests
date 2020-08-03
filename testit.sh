@@ -1,4 +1,4 @@
-VERSION=2.4.45
+VERSION=2.4.46
 
 ENTROPY=`cat /proc/sys/kernel/random/entropy_avail`
 if [ $ENTROPY -lt 3000 ]
@@ -72,6 +72,5 @@ svn checkout http://svn.apache.org/repos/asf/httpd/test/framework/trunk/
     echo "At lest one test failed!!!!"
     exit 1
  fi
- t/TEST
 )
 echo "OK!"
